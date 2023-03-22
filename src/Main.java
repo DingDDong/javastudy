@@ -1,23 +1,12 @@
-class AccessWay {
-    static int num = 0;
+import java.time.LocalDate;
 
-    AccessWay() {
-        incrCnt();
+class DateOfExecution{
+    static String date; // 프로그램의 실행 날짜를 저장하기 위한 변수
+    static {
+        LocalDate nDate = LocalDate.now();
+        date = nDate.toString();
     }
-
-    void incrCnt() {
-        num++;
-    }
-}
-
-class ClassVarAccess {
-    /*
-      오늘의 교훈 : main은 대문자가 아니라 소문자로 적자.
-     */
-    public static void main(String[] args) {
-        AccessWay way = new AccessWay();
-        way.num++;
-        AccessWay.num++;
-        System.out.println("num = " + AccessWay.num);
+    public static void main(String[] args){
+        System.out.println(date);
     }
 }
