@@ -1,12 +1,13 @@
 import java.time.LocalDate;
 
-class DateOfExecution{
-    static String date; // 프로그램의 실행 날짜를 저장하기 위한 변수
-    static {
-        LocalDate nDate = LocalDate.now();
-        date = nDate.toString();
-    }
+class RemoveBar2{
     public static void main(String[] args){
-        System.out.println(date);
+        String str1 = "990925-1012999";
+        String str2 = str1.substring(0, 6)+ ' ' +str1.substring(7);
+        System.out.println(str2);
+
+        StringBuilder sb = new StringBuilder("990925-1012999");
+        sb.replace(6,7," ");
+        System.out.println(sb.toString());
     }
 }
