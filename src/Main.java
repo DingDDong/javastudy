@@ -1,13 +1,16 @@
 import java.time.LocalDate;
-
+import java.util.Scanner;
 class RemoveBar2{
     public static void main(String[] args){
-        String str1 = "990925-1012999";
-        String str2 = str1.substring(0, 6)+ ' ' +str1.substring(7);
-        System.out.println(str2);
+        Scanner sc = new Scanner(System.in);
 
-        StringBuilder sb = new StringBuilder("990925-1012999");
-        sb.replace(6,7," ");
-        System.out.println(sb.toString());
+        System.out.print("문자열 입력: ");
+        String str1 = sc.nextLine();
+
+        System.out.print("문자열 입력: ");
+        String str2 = sc.nextLine();
+
+        System.out.printf("입력된 문자열 1: %s \n", str1);
+        System.out.printf("입력된 문자열 2: %s \n", str2);
     }
 }
