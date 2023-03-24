@@ -1,16 +1,27 @@
 import java.time.LocalDate;
 import java.util.Scanner;
-class RemoveBar2{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+class Friend{
+    protected String name;
+    protected String phone;
 
-        System.out.print("문자열 입력: ");
-        String str1 = sc.nextLine();
+    public Friend(String na, String ph){
+        name = na;
+        phone = ph;
+    }
+    public void showInfo(){
+        System.out.println("이름: " + name);
+        System.out.println("전화: " + phone);
+    }
+}
+class ComFriend extends Friend{
+    private String department;
 
-        System.out.print("문자열 입력: ");
-        String str2 = sc.nextLine();
-
-        System.out.printf("입력된 문자열 1: %s \n", str1);
-        System.out.printf("입력된 문자열 2: %s \n", str2);
+    public ComFriend(String na, String de, String ph){
+        super(na, ph);
+        department = de;
+    }
+    public void showInfo(){
+        super.showInfo();
+        System.out.println("부서: " + department);
     }
 }
