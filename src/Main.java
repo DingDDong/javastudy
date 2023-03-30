@@ -1,15 +1,26 @@
-import java.util.StringTokenizer;
+import java.util.Arrays;
 
-class TokenizeString{
+class INum{
+    private int num;
+    public INum(int num){
+        this.num = num;
+    }
+    @Override
+    public boolean equals(Object obj){
+        if(this.num == ((INum)obj).num)  // 두 인스턴스의 내용 비교
+            return true;
+        else
+            return false;
+    }
+}
+class ArrayObjEquals{
     public static void main(String[] args){
-        StringTokenizer st1 = new StringTokenizer("PM:08:45",":");
-        while(st1.hasMoreTokens())
-            System.out.print(st1.nextToken() + ' ');
-        System.out.println();
-        StringTokenizer st2 = new StringTokenizer("12 + 36 - 8 / 2 = 44", "+-/= ");
-        while(st2.hasMoreTokens())
-            System.out.print(st2.nextToken() + ' ');
-        System.out.println();
+        INum[] ar1 = new INum[3];
+        INum[] ar2 = new INum[3];
+        ar1[0] = new INum(1); ar2[0] = new INum(1);
+        ar1[1] = new INum(2); ar2[1] = new INum(2);
+        ar1[2] = new INum(3); ar2[2] = new INum(3);
+        System.out.println(Arrays.equals(ar1, ar2));
     }
 }
 
