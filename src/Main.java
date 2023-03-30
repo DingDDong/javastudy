@@ -5,7 +5,7 @@ class INum{
     public INum(int num){
         this.num = num;
     }
-    @Override
+    @Override  // 없으면 false를 반환 왜?? 인스턴스의 equals비교는 기본적으로 참조값 비교를 하지만 Override를 해줌으로써 값 비교로 바꾸기 때문
     public boolean equals(Object obj){
         if(this.num == ((INum)obj).num)  // 두 인스턴스의 내용 비교
             return true;
