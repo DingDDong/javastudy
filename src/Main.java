@@ -1,29 +1,15 @@
-class Point {
-    int xPos, yPos;
-    public Point(int x, int y){
-        xPos = x;
-        yPos = y;
+class Accumulator {
+    private static int j = 0;
+    public static void add(int i){
+        j = j + i;
     }
-    public void showPointInfo(){
-        System.out.println("[" + xPos + ", " + yPos + "]");
+    public static void showResult(){
+        System.out.println(j);
     }
-}
-class Circle{
-    int r;
-    Point p;
-    public Circle(int x1, int y1, int radius){
-        p = new Point(x1,y1);
-        r = radius;
-    }
-    public void showCircleInfo(){
-        p.showPointInfo();
-        System.out.println("반지름: " + r);
-
-    }
-}
-class useCircle{
     public static void main(String[] args){
-        Circle c = new Circle(2, 2, 4);
-        c.showCircleInfo();
+        for(int i = 0; i < 10; i++) {
+            Accumulator.add(i);
+        }
+        Accumulator.showResult();
     }
 }
