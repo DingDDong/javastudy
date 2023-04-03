@@ -1,13 +1,15 @@
 class FirstJavaProgram{
     public static void main(String[] args) {
-      result(3,7);
+        System.out.println(Area(5));
+        System.out.println(Round(10));
     }
-    public static void result(int x, int y){
-        if(x > y){
-            System.out.println("절대값: " + (x - y));
-        }
-        else{
-            System.out.println("절대값: " + (y - x));
-        }
+    public static double Area(int x){
+        final double PI = 3.14;
+        return x * x * PI;
+    }
+
+    public static double Round(int x){
+        final double PI = 3.14;
+        return 2 * x * PI;
     }
 }
