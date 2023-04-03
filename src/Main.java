@@ -1,7 +1,18 @@
 class FirstJavaProgram{
     public static void main(String[] args) {
-        int num=15678;
-        System.out.println((byte)(num >> 2) & 1);
-        System.out.println((byte)(num >> 4) & 1);
+        int num1 = 50;
+        int num2 = 100;
+        int big;
+        int diff;
+
+        if(num1 > num2){
+            System.out.println("큰 수:" + num1);
+        }
+        else
+            System.out.println("큰 수:" + num2);
+        if(num1 > num2)
+            System.out.println("절댓값:" + (num1 - num2));
+        else
+            System.out.println("절댓값:" + (num2 - num1));
     }
 }
