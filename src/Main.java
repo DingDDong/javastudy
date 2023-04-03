@@ -1,18 +1,12 @@
 class FirstJavaProgram{
     public static void main(String[] args) {
-        int n = 24;
-        switch (n / 10){
-            case 0:
-                System.out.println("0이상 10미만의 수");
-                break;
-            case 1:
-                System.out.println("10이상 20미만의 수");
-                break;
-            case 2:
-                System.out.println("20이상 30미만의 수");
-                break;
-            default:
-                System.out.println("음수 혹은 30이상의 수");
-        }
+      result(10,5);
+    }
+    public static void result(int x, int y){
+        System.out.println("더하기: " + (x + y));
+        System.out.println("빼기: " + (x - y));
+        System.out.println("곱하기: " + (x * y));
+        System.out.println("몫: " + (x / y));
+        System.out.println("나머지: " + (x % y));
     }
 }
