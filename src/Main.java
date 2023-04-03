@@ -1,25 +1,9 @@
-class Box<T> {
-    private T ob;
-    public void set(T o){
-        ob = o;
-    }
-    public T get(){
-        return ob;
-    }
-}
-class BoxSwapDemo{
-    public static <T extends Number> void swapBox(Box<T> box1,Box<T> box2){
-        T temp = box1.get();
-        box1.set(box2.get());
-        box2.set(temp);
-    }
+class FirstJavaProgram{
     public static void main(String[] args){
-        Box<Integer> box1 = new Box<>();
-        box1.set(99);
-        Box<Integer> box2 = new Box<>();
-        box2.set(55);
-        System.out.println(box1.get() + " & " + box2.get());
-        swapBox(box1, box2);
-        System.out.println(box1.get() + " & " + box2.get());
+       int n1 = ((25 + 5) + (36 / 4) - 72) * 5;
+       int n2 = ((25 * 5) + (36 - 4) + 71) / 4;
+       int n3 = (128 / 4) * 2;
+       boolean isbig = (n1 > n2) && (n2 > n3);
+           System.out.println(isbig);
     }
 }
