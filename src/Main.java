@@ -1,19 +1,29 @@
-class Triangle {
-    final private double height;
-    final private double base;
-    public Triangle(double height,int base) {
-        this.height = height;
-        this.base = base;
+class Point {
+    int xPos, yPos;
+    public Point(int x, int y){
+        xPos = x;
+        yPos = y;
     }
-    public double getArea() {
-        return height * base / 2;
+    public void showPointInfo(){
+        System.out.println("[" + xPos + ", " + yPos + "]");
     }
 }
-class useTriangle{
-    public static void main(String[] args) {
-        Triangle tr = new Triangle(5,3);
-        System.out.println(tr.getArea());
-        Triangle tr1 = new Triangle(10,8);
-        System.out.println(tr1.getArea());
+class Circle{
+    int r;
+    Point p;
+    public Circle(int x1, int y1, int radius){
+        p = new Point(x1,y1);
+        r = radius;
+    }
+    public void showCircleInfo(){
+        p.showPointInfo();
+        System.out.println("반지름: " + r);
+
+    }
+}
+class useCircle{
+    public static void main(String[] args){
+        Circle c = new Circle(2, 2, 4);
+        c.showCircleInfo();
     }
 }
