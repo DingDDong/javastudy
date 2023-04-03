@@ -1,15 +1,19 @@
-class FirstJavaProgram{
+class FirstJavaProgram {
     public static void main(String[] args) {
-        System.out.println(Area(5));
-        System.out.println(Round(10));
+        for (int j = 1; j <= 1000; j++) {
+            if (isPrimeNumber(j))
+                System.out.println(j);
+        }
     }
-    public static double Area(int x){
-        final double PI = 3.14;
-        return x * x * PI;
+        public static boolean isPrimeNumber ( int n){
+            if (n <= 1)
+                return false;
+            if (n == 2)
+                return true;
+            for (int i = 2; i < n; i++) {
+                if (n % i == 0)
+                    return false;
+            }
+            return true;
+        }
     }
-
-    public static double Round(int x){
-        final double PI = 3.14;
-        return 2 * x * PI;
-    }
-}
