@@ -1,15 +1,26 @@
-class Accumulator {
-    private static int j = 0;
-    public static void add(int i){
-        j = j + i;
-    }
-    public static void showResult(){
-        System.out.println(j);
-    }
-    public static void main(String[] args){
-        for(int i = 0; i < 10; i++) {
-            Accumulator.add(i);
+class Array{
+    public static int minValue(int[] arr){
+        int min = arr[0];
+        for(int i = 0; i < arr.length; i++){
+            if (min > arr[i]){
+                min = arr[i];
+            }
         }
-        Accumulator.showResult();
+        return min;
+    }
+
+    public static int maxValue(int[] arr){
+        int max = arr[0];
+        for (int e : arr){
+            if(max < e){
+                max = e;
+            }
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+        int[] arr = {234 , 10, 1, 2, 3, 4, 5, 6, 7};
+        System.out.println("최솟값: " + minValue(arr));
+        System.out.println("최댓값: " + maxValue(arr));
     }
 }
