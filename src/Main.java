@@ -1,39 +1,38 @@
-class Array{
-        public static void shiftTwoDArr(int[][] arr) {
-            int[] lastLow =  arr[arr.length - 1];
+class Car{
+    int gasolineGauge;
 
-            for(int low = arr.length - 1; low > 0; low--){
-                arr[low] = arr[low - 1];
-            }
-            arr[0] = lastLow;
-        }
+    public Car(int oil){
+        gasolineGauge = oil;
+    }
+}
+class HybridCar extends Car{
+    int electricGauge;
 
-    public static void showTwoDArr(int[][] arr) {
-        for(int i = 0; i < arr.length; i++) {
-            for(int j = 0; j < arr[i].length; j++)
-                System.out.print(arr[i][j] + " ");
+    public HybridCar(int oil, int ele){
+        super(oil);
+        electricGauge = ele;
+    }
+}
+class HybridWaterCar extends HybridCar{
+    int waterGauge;
 
-            System.out.println();
-        }
+    public HybridWaterCar(int oil, int ele, int wat){
+        super(oil, ele);
+        waterGauge = wat;
     }
 
-        public static void main(String[] args) {
-            int[][] arr = {
-                    {1, 2, 3},
-                    {4, 5, 6},
-                    {7, 8, 9}
-            };
+    public void showCurrentGauge(){
+        System.out.println("잔여 가솔린: " + gasolineGauge);
+        System.out.println("잔여 전기량: " + electricGauge);
+        System.out.println("잔여 워터량: " + waterGauge);
+    }
+}
 
-            System.out.println("1st shift...");
-            shiftTwoDArr(arr);
-            showTwoDArr(arr);
-
-            System.out.println("2nd shift...");
-            shiftTwoDArr(arr);
-            showTwoDArr(arr);
-
-            System.out.println("3rd shift...");
-            shiftTwoDArr(arr);
-            showTwoDArr(arr);
-        }
+class ConstructorAndSuper {
+    public static void main(String[] args) {
+        HybridWaterCar hb1 = new HybridWaterCar(2, 5, 4);
+        hb1.showCurrentGauge();
+        HybridWaterCar hb2 = new HybridWaterCar(10,2,3);
+        hb1.showCurrentGauge();
+    }
 }
