@@ -1,38 +1,40 @@
-class Car{
-    int gasolineGauge;
+import java.util.HashSet;
+class Num {
+    private int num;
 
-    public Car(int oil){
-        gasolineGauge = oil;
+    public Num(int n) {
+        num = n;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(num);
+    }
+
+    @Override
+    public int hashCode() {
+        return num % 3;
+    }
+
+    @Override
+    public boolean equals(Object obj) { //num의 값이 같으면 true 반환
+        if (num == ((Num) obj).num)
+            return true;
+        else
+            return false;
     }
 }
-class HybridCar extends Car{
-    int electricGauge;
+class HashSetEqualityTwo{
+    public static void main(String[] args){
+        HashSet<Num> set = new HashSet<>();
+        set.add(new Num(7799));
+        set.add(new Num(9955));
+        set.add(new Num(7799));
+        System.out.println("인스턴스 수: " + set.size());
 
-    public HybridCar(int oil, int ele){
-        super(oil);
-        electricGauge = ele;
-    }
-}
-class HybridWaterCar extends HybridCar{
-    int waterGauge;
-
-    public HybridWaterCar(int oil, int ele, int wat){
-        super(oil, ele);
-        waterGauge = wat;
-    }
-
-    public void showCurrentGauge(){
-        System.out.println("잔여 가솔린: " + gasolineGauge);
-        System.out.println("잔여 전기량: " + electricGauge);
-        System.out.println("잔여 워터량: " + waterGauge);
+        for(Num n : set)
+            System.out.print(n.toString() + '\t');
+        System.out.println();
     }
 }
 
-class ConstructorAndSuper {
-    public static void main(String[] args) {
-        HybridWaterCar hb1 = new HybridWaterCar(2, 5, 4);
-        hb1.showCurrentGauge();
-        HybridWaterCar hb2 = new HybridWaterCar(10,2,3);
-        hb1.showCurrentGauge();
-    }
-}
