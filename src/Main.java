@@ -1,14 +1,18 @@
-class Varargs{
-    public static void showAll(String...vargs){
-        System.out.println("LEN: " + vargs.length);
-        for(String s : vargs)
-            System.out.print(s + '\t');
-        System.out.println();
+class Outer{
+    private static int num = 0;
+    static class Nested1 { // Static 네스티드 클래스
+        void add(int n) { num += n;} // Outer클래스의 static변수 공유!
     }
+    static class Nested2{ // Static 네스티드 클래스
+        int get() { return num; }
+    }
+}
+class StaticNested {
     public static void main(String[] args){
-        showAll("Box");
-        showAll("Box", "Toy");
-        showAll("Box", "Toy", "Apple");
+        Outer.Nested1 nst1 = new Outer.Nested1();
+        nst1.add(5);
+        Outer.Nested2 nst2 = new Outer.Nested2();
+        System.out.println(nst2.get());
     }
 }
 
