@@ -1,18 +1,20 @@
-class Outer{
-    private static int num = 0;
-    static class Nested1 { // Static 네스티드 클래스
-        void add(int n) { num += n;} // Outer클래스의 static변수 공유!
-    }
-    static class Nested2{ // Static 네스티드 클래스
-        int get() { return num; }
-    }
-}
-class StaticNested {
-    public static void main(String[] args){
-        Outer.Nested1 nst1 = new Outer.Nested1();
-        nst1.add(5);
-        Outer.Nested2 nst2 = new Outer.Nested2();
-        System.out.println(nst2.get());
-    }
+interface Printable{
+    void print(String s); // 매개변수 하나, 반환형 void
 }
 
+class OneparamNoReturn {
+    public static void main(String[] args){
+        Printable p;
+        p = (String s) ->  { System.out.println(s); }; // 줄임 없는 표현
+        p.print("Lamda exp one.");
+
+        p = (String s) -> System.out.println(s); // 중괄호 생략
+        p.print("Lamda exp two");
+
+        p = (s) -> System.out.println(s); // 매개변수 형 생략
+        p.print("Lamda exp three");
+
+        p = s -> System.out.println(s); // 매개변수 소괄호 생략
+        p.print("Lamda exp four");
+    }
+}
