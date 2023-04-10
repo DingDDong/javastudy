@@ -1,20 +1,14 @@
-interface Printable{
-    void print(String s); // 매개변수 하나, 반환형 void
+interface Calculate{
+    int cal(int a, int b); // 값을 반환하는 추상 메소드
 }
 
-class OneparamNoReturn {
-    public static void main(String[] args){
-        Printable p;
-        p = (String s) ->  { System.out.println(s); }; // 줄임 없는 표현
-        p.print("Lamda exp one.");
-
-        p = (String s) -> System.out.println(s); // 중괄호 생략
-        p.print("Lamda exp two");
-
-        p = (s) -> System.out.println(s); // 매개변수 형 생략
-        p.print("Lamda exp three");
-
-        p = s -> System.out.println(s); // 매개변수 소괄호 생략
-        p.print("Lamda exp four");
+class TwoparamAndReturn {
+    public static void main(String[] args) {
+        Calculate c;
+        c = (a, b) -> { return a + b; }; // return문의 중괄호는 생략 불가!
+        System.out.println(c.cal(4, 3));
+        c = (a, b) -> a + b; // 연산 결과가 남으면, 별도로 명시하지 않아도 반환 대상이 됨!
+        System.out.println(c.cal(4, 3));
     }
 }
+
