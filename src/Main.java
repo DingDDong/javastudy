@@ -1,8 +1,9 @@
+import java.util.function.DoubleUnaryOperator;
 import java.util.function.Function;
 class FunctionDemo{
         public static void main(String[] args) {
-                Function<String, Integer> f = s -> s.length();
-                        System.out.println(f.apply("Robot"));
-                        System.out.println(f.apply("System"));
+                DoubleUnaryOperator f = s -> s * 0.5;
+                        System.out.println(f.applyAsDouble(5));
+                        System.out.println(f.applyAsDouble(10));
         }
 }
