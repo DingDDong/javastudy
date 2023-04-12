@@ -1,15 +1,15 @@
-import java.util.Collections;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.function.Function;
 
-
-class StrIgnoreCaseComp {
+class StringMaker {
         public static void main(String[] args) {
-                List<String> list = new ArrayList<>();
-                list.add("robot");
-                list.add("Lamda");
-                list.add("box");
-                Collections.sort(list, (String::compareToIgnoreCase));
-                System.out.println(list);
+                Function<char[], String> f = ar ->
+                      new String(ar);
+                char[] src = {'R', 'o', 'b', 'o', 't'};
+                String str= f.apply(src);
+                System.out.println(str);
+                char[] src2 = {'R', 'b', 'o', 't'};
+                String str2= f.apply(src2);
+                System.out.println(str2);
         }
 }
+//Function<T, R>     R apply(T t)
