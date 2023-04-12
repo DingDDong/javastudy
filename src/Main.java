@@ -1,20 +1,25 @@
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.function.Predicate;
-class RemoveIfDemo{
+import java.util.function.ToIntBiFunction;
+
+class IBox{
+        private int n;
+        public IBox(int i) { n = i; }
+        public int larger(IBox b) {
+                if (n > b.n) {
+                        return n;
+                } else {
+                        return b.n;
+                }
+        }
+}
+
+class NoObjectMethodRef {
         public static void main(String[] args) {
-                List<Integer> ls1 = Arrays.asList(1, -2, 3, -4, 5);
-                ls1 = new ArrayList<>(ls1);
+                IBox ib1 = new IBox(15);
+                IBox ib2 = new IBox(17);
 
-                List<Double> ls2 = Arrays.asList(-1.1, 2.2, -3.3, 4.4, -5.5);
-                ls2 = new ArrayList<>(ls2);
-
-                Predicate<Number> p = n -> n.doubleValue() < 0.0; //삭제의 조건
-                ls1.removeIf(p); // List<Integer> 인스턴스에 전달
-                ls2.removeIf(p); // List<Double> 인스턴스에 전달
-
-                System.out.println(ls1);
-                System.out.println(ls2);
+                //두 상자에 저장된 값 비교하여 더 큰 값 반환
+                ToIntBiFunction<IBox, IBox> bf = IBox::larger;
+                int bigNum = bf.applyAsInt(ib1, ib2);
+                System.out.println(bigNum);
         }
 }
