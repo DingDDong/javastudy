@@ -1,25 +1,15 @@
-import java.util.function.ToIntBiFunction;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
 
-class IBox{
-        private int n;
-        public IBox(int i) { n = i; }
-        public int larger(IBox b) {
-                if (n > b.n) {
-                        return n;
-                } else {
-                        return b.n;
-                }
-        }
-}
 
-class NoObjectMethodRef {
+class StrIgnoreCaseComp {
         public static void main(String[] args) {
-                IBox ib1 = new IBox(15);
-                IBox ib2 = new IBox(17);
-
-                //두 상자에 저장된 값 비교하여 더 큰 값 반환
-                ToIntBiFunction<IBox, IBox> bf = IBox::larger;
-                int bigNum = bf.applyAsInt(ib1, ib2);
-                System.out.println(bigNum);
+                List<String> list = new ArrayList<>();
+                list.add("robot");
+                list.add("Lamda");
+                list.add("box");
+                Collections.sort(list, (String::compareToIgnoreCase));
+                System.out.println(list);
         }
 }
