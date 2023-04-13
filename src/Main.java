@@ -1,15 +1,12 @@
-import java.util.function.Function;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
-class StringMaker {
+class Stream{
         public static void main(String[] args) {
-                Function<char[], String> f = ar ->
-                      new String(ar);
-                char[] src = {'R', 'o', 'b', 'o', 't'};
-                String str= f.apply(src);
-                System.out.println(str);
-                char[] src2 = {'R', 'b', 'o', 't'};
-                String str2= f.apply(src2);
-                System.out.println(str2);
+                int[] ar = {1, 2, 3, 4, 5};
+                int sum = Arrays.stream(ar)
+                        .filter(n -> n % 2 == 1)
+                        .sum();
+                System.out.println(sum);
         }
 }
-//Function<T, R>     R apply(T t)
