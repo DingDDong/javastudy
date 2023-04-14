@@ -1,13 +1,16 @@
 import java.time.Instant;
-import java.time.Duration;
+import java.time.LocalDate;
 
-class InstantDemo{
+class LocalDateDemo{
         public static void main(String[] args) {
-                Instant start = Instant.now();
-                System.out.println("시작: " + start.getEpochSecond());
-                Instant end = Instant.now();
-                System.out.println("끝: " + end.getEpochSecond());
-                Duration between = Duration.between(start, end);
-                System.out.println("밀리 초 단위 차: " + between.toMillis());
+                //오늘
+                LocalDate today = LocalDate.now();
+                System.out.println("Today: " + today);
+                //올 해의 크리스마스
+                LocalDate xmas = LocalDate.of(today.getYear(), 12, 25);
+                System.out.println("Xmas: " + xmas);
+                //올 해의 크리스마스 이브
+                LocalDate eve = xmas.minusDays(1);
+                System.out.println("Xmas Eve: " + eve);
         }
 }
