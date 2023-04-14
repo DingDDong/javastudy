@@ -1,16 +1,8 @@
-import java.time.Instant;
-import java.time.LocalDate;
+import java.time.ZoneId;
 
-class LocalDateDemo{
+class ZoneIdDemo{
         public static void main(String[] args) {
-                //오늘
-                LocalDate today = LocalDate.now();
-                System.out.println("Today: " + today);
-                //올 해의 크리스마스
-                LocalDate xmas = LocalDate.of(today.getYear(), 12, 25);
-                System.out.println("Xmas: " + xmas);
-                //올 해의 크리스마스 이브
-                LocalDate eve = xmas.minusDays(1);
-                System.out.println("Xmas Eve: " + eve);
+                ZoneId paris = ZoneId.of("Asia/Seoul");
+                System.out.println(paris); // 파리의 시간대 정보를 반영한 ZonedId 생성
         }
 }
