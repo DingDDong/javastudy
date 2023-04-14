@@ -2,7 +2,10 @@ import java.time.ZoneId;
 
 class ZoneIdDemo{
         public static void main(String[] args) {
-                ZoneId paris = ZoneId.of("Asia/Seoul");
-                System.out.println(paris); // 파리의 시간대 정보를 반영한 ZonedId 생성
+              ZoneId.getAvailableZoneIds()
+                      .stream()
+                      .filter (s -> s.startsWith("Asia")) // 제거하면 전체 리스트 제공
+                      .sorted()
+                      .forEach(s -> System.out.println(s));
         }
 }
