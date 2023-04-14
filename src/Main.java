@@ -1,20 +1,13 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.stream.Stream;
+import java.time.Instant;
+import java.time.Duration;
 
-class CollectParallenStringStream{
+class InstantDemo{
         public static void main(String[] args) {
-                Integer[] ints = {5, 2, 1, 135};
-                Stream<Integer> ss = Arrays.stream(ints);
-
-                int sum = ss.parallel()
-                                    .filter(s -> s + 5 < 11)
-                                    .collect(() -> new ArrayList<>(),
-                                            (c, s) -> c.add(s),
-                                            (lst1, lst2) -> lst1.addAll(lst2)).stream()
-                        .mapToInt(s -> ((Integer)s).intValue())
-                        .sum();
-                System.out.println(sum);
+                Instant start = Instant.now();
+                System.out.println("시작: " + start.getEpochSecond());
+                Instant end = Instant.now();
+                System.out.println("끝: " + end.getEpochSecond());
+                Duration between = Duration.between(start, end);
+                System.out.println("밀리 초 단위 차: " + between.toMillis());
         }
 }
