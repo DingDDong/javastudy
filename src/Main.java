@@ -1,21 +1,20 @@
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BinaryOperator;
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
-
-class Stream{
+class CollectParallenStringStream{
         public static void main(String[] args) {
-                List<Integer> ls = Arrays.asList(5, 4, 3, 2);
+                Integer[] ints = {5, 2, 1, 135};
+                Stream<Integer> ss = Arrays.stream(ints);
 
-                BinaryOperator<Integer> lc = (s1, s2) -> {
-                        if(s1 > s2)
-                                return s1;
-                        else
-                                return s2;
-                };
-
-                Integer str = ls.stream()
-                                .reduce(0,lc);
-                System.out.println(str);
+                int sum = ss.parallel()
+                                    .filter(s -> s + 5 < 11)
+                                    .collect(() -> new ArrayList<>(),
+                                            (c, s) -> c.add(s),
+                                            (lst1, lst2) -> lst1.addAll(lst2)).stream()
+                        .mapToInt(s -> ((Integer)s).intValue())
+                        .sum();
+                System.out.println(sum);
         }
 }
