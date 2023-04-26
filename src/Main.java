@@ -1,15 +1,11 @@
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.FileOutputStream;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
-class DataFilterOutputStream{
-    public static void main(String[] args){
-        try(DataOutputStream out = new DataOutputStream(new FileOutputStream("data.dat"))){
-            out.writeInt(370); // int형 데이터 저장
-            out.writeDouble(3.14); // double형 데이터 저장
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+public class CalculatorTest {
+    Calculator calculator = new Calculator();
+    @Test
+    public void testAdd() {
+        int result = calculator.add(4, 6);
+        assertThat(result, is(10));
     }
 }
