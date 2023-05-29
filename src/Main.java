@@ -1,11 +1,19 @@
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
 
-public class CalculatorTest {
-    Calculator calculator = new Calculator();
-    @Test
-    public void testAdd() {
-        int result = calculator.add(4, 6);
-        assertThat(result, is(10));
+public class Main {
+    public static void main(String[] args) {
+        String input = "1, 2, 3;4";
+        String delimiter = ",";
+
+        if (!input.contains(delimiter)) {
+            System.out.println("구분자가 없습니다.");
+            return;
+        }
+
+        try {
+            String[] result = input.split(delimiter);
+        } catch (java.util.regex.PatternSyntaxException e) {
+            System.out.println("구분자가 잘못되었습니다.");
+        }
     }
 }
